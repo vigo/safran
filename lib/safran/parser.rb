@@ -1,6 +1,13 @@
 require 'rss'
 require 'open-uri'
 require 'colorize'
+require 'action_view'
+
+I18n.enforce_available_locales = false
+I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+I18n.load_path = Dir[File.join(File.dirname(File.realpath(__FILE__)) + '/locales', '*.yml')]
+I18n.backend.load_translations
+I18n.locale = :tr
 
 module Safran
   class Parser
@@ -24,9 +31,10 @@ module Safran
     end
 
     def print(item)
-      puts "#{item.title}".colorize(:red)
+      time_ago = ActionView::Base.new.time_ago_in_words(item.pubDate)
+      puts "#{item.title} [ #{time_ago} #{I18n.t('custom.ago')} ]".colorize(:white)
       puts "#{item.link}".colorize(:blue).underline
-      puts ''
+      puts ""
     end
   end
 end
