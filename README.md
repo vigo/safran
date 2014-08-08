@@ -2,25 +2,18 @@
 
 [Safran.io](http://safran.io) için Ruby ile yazılmış Command Line okuyucusu.
 
-Node.js ile yazılmış versiyonu için [safran-cli](https://github.com/f/safran-cli)
+Orijinal [kod](https://github.com/Sdogruyol/safran)
 
-## Kurulum
+## Farklar
 
-```bash
-gem install safran
-```
-
-## Kullanım
-
-```bash
-safran
-```
-
-**Önemli Not:** Eğer OS X kullanıyorsanız ve Web Taracıyıda haberi okumak istiyorsanız. Haber linkinin üzerine gelip cmd+double-click yapın.
+* Zaman bildirimi (_XXX saat önce_...)
+* Localizasyon (_tr, en_)
+* Rake task’ler, development ve test
+* RSpec3 syntax update
 
 ## Screenshot
 
-![Safran.io](screenshot.png)
+![Safran.io](screenshot-vigo.png)
 
 ## Safran Nedir?
 

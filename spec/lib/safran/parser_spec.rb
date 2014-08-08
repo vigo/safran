@@ -2,17 +2,16 @@ require 'spec_helper'
 
 describe Safran::Parser do
   it 'should have a valid rss url' do
-    subject.url.should match(/.rss/)
+    expect(subject.url).to match(/.rss/)
   end
 
   it 'should return the RSS feed ' do
-    subject.stub(:print)
-    subject.parse.should_not be nil
+    allow(subject).to receive(:print)
+    expect(subject.parse).not_to be nil
   end
-
+  
   it 'should have an items array' do
-    subject.stub(:print)
-    subject.parse.should be_a_kind_of(Array)
+    allow(subject).to receive(:print)
+    expect(subject.parse).to be_a_kind_of(Array)
   end
-
 end
